@@ -23,8 +23,14 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("", "H", "^")
 keymap.set("", "L", "g_")
 
-keymap.set("", "j", "gj")
-keymap.set("", "k", "gk")
+-- vim.cmd [[
+--     nmap j gj
+--     nmap k gk
+--
+-- ]]
+-- 等价于上面的命令，可以帮助在 vscode 中越过折叠
+keymap.set("", "j", "gj", {remap = true})
+keymap.set("", "k", "gk", {remap = true})
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
