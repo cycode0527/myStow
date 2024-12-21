@@ -21,6 +21,7 @@ export EDITOR
 export _Z_SRC=/home/sxrhhh/.zsh/plugins/z/z.sh
 export MANPAGER='nvim +Man!'
 
+
 # export WINEARCH=win32
 
 
@@ -238,7 +239,19 @@ compinit
     alias here='dolphin .'
     alias tod='cd ~/下载'
     alias ps4='proxychains4'
-
+    
+    
+#--------------------
+#  yazi shell wrapper to toggle dir when exit
+#--------------------
+    function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+    }
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -25,7 +25,7 @@ fi
 unset rc
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH="$PATH:/home/sxrhhh/下载/010editor" #ADDED BY 010 EDITOR
+export PATH="$PATH:/home/sxrhhh/apps/010editor" #ADDED BY 010 EDITOR
 
 
 # >>> conda initialize >>>
@@ -43,3 +43,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+. "$HOME/.cargo/env"
